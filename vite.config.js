@@ -19,16 +19,16 @@ export default defineConfig({
   //   }
   // },
 
-  server: {
-    // host: 'localhost',
-    // port: 8080,
-    proxy: {
-      "/api": {
-        target: "https://company-admin-server-production.up.railway.app"
-        // target: "http://localhost:3000"
-      }
-    }
-  },
+  // server: {
+  //   // host: 'localhost',
+  //   // port: 8080,
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://company-admin-server-production.up.railway.app"
+  //       // target: "http://localhost:3000"
+  //     }
+  //   }
+  // },
   plugins: [
     vue(),
     topLevelAwait({
