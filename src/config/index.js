@@ -13,7 +13,7 @@ const EnvConfig = {
         mockApi: 'https://www.fastmock.site/mock/bdc39fe45bc0f9e22ae8dec88aeff8fe/api'
     },
     prod: {
-        baseApi: '//futurefe.com/api',
+        baseApi: 'https://company-admin-server-production.up.railway.app/api',
         mockApi: 'https://www.fastmock.site/mock/bdc39fe45bc0f9e22ae8dec88aeff8fe/api'
     }
 }
