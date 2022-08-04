@@ -22,7 +22,7 @@ app.directive('has', {
     beforeMount: (el, binding) => {
         // console.log(el, binding);
         // 获取按钮权限
-        let actionList = storage.getItem('actionList')
+        let actionList = storage.getItem('actionList') || [];
         let value = binding.value;
         // includes() 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。
         // 盘点列表中是否有对应按钮权限标识
