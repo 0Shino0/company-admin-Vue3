@@ -24,7 +24,7 @@ export default defineConfig({
     port: 8080,
     proxy: {
       "/api": {
-        target: "https://company-admin-server-production.up.railway.app"
+        target: "https://company-admin-server-production.up.railway.app/"
         // target: "http://localhost:3000"
       }
     }
