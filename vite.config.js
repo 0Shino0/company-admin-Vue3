@@ -19,18 +19,18 @@ export default defineConfig({
   //   }
   // },
 
-  server: {
-    // host: 'localhost',
-    // port: 8080,
-    proxy: {
-      "/api": {
-        target: "https://manager-server.yyshino.top/",
-        changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
-        // secure: false,
-        // target: "http://localhost:3000"
-      }
-    }
-  },
+  // server: {
+  //   // host: 'localhost',
+  //   // port: 8080,
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://manager-server.yyshino.top/",
+  //       changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
+  //       // secure: false,
+  //       // target: "http://localhost:3000"
+  //     }
+  //   }
+  // },
   plugins: [
     vue(),
     topLevelAwait({
