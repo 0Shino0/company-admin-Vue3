@@ -20,11 +20,13 @@ export default defineConfig({
   // },
 
   server: {
-    host: 'https://company-admin-server-production.up.railway.app',
+    // host: 'localhost',
     // port: 8080,
     proxy: {
       "/api": {
-        target: "https://company-admin-server-production.up.railway.app"
+        target: "https://company-admin-server-production.up.railway.app",
+        changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
+        // secure: false,
         // target: "http://localhost:3000"
       }
     }
