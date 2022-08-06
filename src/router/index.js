@@ -68,9 +68,9 @@ async function loadAsyncRoutes() {
     }
 }
 
-// (async () => {
-await loadAsyncRoutes()
-// })();
+(async () => {
+    await loadAsyncRoutes()
+})();
 
 // 判断当前地址是否可以访问
 
