@@ -59,7 +59,7 @@ async function loadAsyncRoutes() {
             const { menuList } = await API.getPermissionList();
             let routes = utils.generateRoute(menuList);
             routes.map((route) => {
-                let url = `./../backend/views/${route.component}.vue`;
+                let url = `./../views/${route.component}.vue`;
                 route.component = () => import(url);
                 router.addRoute("home", route);
             })
