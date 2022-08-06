@@ -45,7 +45,7 @@ service.interceptors.response.use((res) => {
  * @param {*} options 请求配置
  */
 function request(options) {
-    options.url = '/backend/' + options.url;
+    options.url = '/backend' + options.url;
     options.method = options.method || 'get'
     if (options.method.toLowerCase() === 'get') {
         options.params = options.data;
