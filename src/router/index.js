@@ -60,7 +60,7 @@ async function loadAsyncRoutes() {
             let routes = utils.generateRoute(menuList);
             routes.map((route) => {
                 let url = `../views/${route.component}.vue`;
-                route.component = () => import(url);
+                route.component = () => require(url);
                 router.addRoute("home", route);
             })
         } catch (error) {
