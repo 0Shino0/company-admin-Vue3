@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/index.js'
 
-import storage from './utils/storage';
-import request from './utils/request';
-import store from './store';
-import api from './api';
+import storage from './utils/storage.js';
+import request from './utils/request.js';
+import store from './store/index.js';
+import api from './api/index.js';
 
 
 // element 插件
