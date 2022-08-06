@@ -1,25 +1,22 @@
-const request = require('request');
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = (req, res) => {
-    // proxy middleware options
-    let prefix = "/notion-api"
-    if (!req.url.startsWith(prefix)) {
-        return;
-    }
-    let target = "https://manager-server.yyshino.top/" + req.url.substring(prefix.length);
+    let target = ''
 
-    var options = {
-        'method': 'GET',
-        'url': target,
-        'headers': {
-            'Notion-Version': res.headers['notion-version'],
-            'Authorization': res.headers['authorization']
+    // 代理目标地址
+    // 这里使用 backend 主要用于区分 vercel serverless 的 api 路径
+    if (req.url.startsWith('/backend')) {
+        target = 'https://manager-server.yyshino.top/'
+    }
+
+    // 创建代理对象并转发请求
+    createProxyMiddleware({
+        target,
+        changeOrigin: true,
+        pathRewrite: {
+            // 通过路径重写，去除请求路径中的 `/backend`
+            // 例如 /backend/user/login 将被转发到 http://backend-api.com/user/login
+            '^/backend/': '/'
         }
-    };
-    request(options, function (error, response) {
-        if (error) throw new Error(error);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.write(response.body);
-        res.end();
-    });
+    })(req, res)
 }
