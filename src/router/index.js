@@ -59,7 +59,7 @@ async function loadAsyncRoutes() {
             const { menuList } = await API.getPermissionList();
             let routes = utils.generateRoute(menuList);
             routes.map((route) => {
-                let url = `./../views/${route.component}.vue`;
+                let url = `./../backend/views/${route.component}.vue`;
                 route.component = () => import(url);
                 router.addRoute("home", route);
             })
@@ -68,9 +68,9 @@ async function loadAsyncRoutes() {
     }
 }
 
-(async () => {
-    await loadAsyncRoutes()
-})();
+// (async () => {
+await loadAsyncRoutes()
+// })();
 
 // 判断当前地址是否可以访问
 
