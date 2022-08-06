@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/components/Home.vue'
-import storage from './../utils/storage'
-import API from './../api'
+// import storage from './../utils/storage'
+// import API from './../api'
 // import util from './../utils/utils'
-import utils from './../utils/utils'
+// import utils from './../utils/utils'
 
 
 const routes = [
@@ -24,6 +24,54 @@ const routes = [
                 },
                 component: () => import('@/views/Welcome.vue')
             },
+            {
+                name: 'user',
+                path: '/system/user',
+                meta: {
+                    title: '用户管理'
+                },
+                component: () => import('@/views/User.vue')
+            },
+            {
+                name: 'role',
+                path: '/system/role',
+                meta: {
+                    title: '角色管理'
+                },
+                component: () => import('@/views/Role.vue')
+            },
+            {
+                name: 'menu',
+                path: '/system/menu',
+                meta: {
+                    title: '菜单管理'
+                },
+                component: () => import('@/views/Menu.vue')
+            },
+            {
+                name: 'dept',
+                path: '/system/dept',
+                meta: {
+                    title: '部门管理'
+                },
+                component: () => import('@/views/Dept.vue')
+            },
+            {
+                name: 'leave',
+                path: '/audit/leave',
+                meta: {
+                    title: '休假管理'
+                },
+                component: () => import('@/views/Leave.vue')
+            },
+            {
+                name: 'approve',
+                path: '/audit/approve',
+                meta: {
+                    title: '休假管理'
+                },
+                component: () => import('@/views/Approve.vue')
+            }
         ]
     },
     {
@@ -51,26 +99,26 @@ const router = createRouter({
     routes
 });
 
-async function loadAsyncRoutes() {
-    // console.log(loadAsyncRoutes());
-    let userInfo = storage.getItem("userInfo") || {};
-    if (userInfo.token) {
-        try {
-            const { menuList } = await API.getPermissionList();
-            let routes = utils.generateRoute(menuList);
-            routes.map((route) => {
-                let url = `../views/${route.component}.vue`;
-                route.component = () => require(url);
-                router.addRoute("home", route);
-            })
-        } catch (error) {
-        }
-    }
-}
+// async function loadAsyncRoutes() {
+//     // console.log(loadAsyncRoutes());
+//     let userInfo = storage.getItem("userInfo") || {};
+//     if (userInfo.token) {
+//         try {
+//             const { menuList } = await API.getPermissionList();
+//             let routes = utils.generateRoute(menuList);
+//             routes.map((route) => {
+//                 let url = `./../views/${route.component}.vue`;
+//                 route.component = () => import(url);
+//                 router.addRoute("home", route);
+//             })
+//         } catch (error) {
+//         }
+//     }
+// }
 
-(async () => {
-    await loadAsyncRoutes()
-})();
+// (async () => {
+//     await loadAsyncRoutes()
+// })();
 
 // 判断当前地址是否可以访问
 
